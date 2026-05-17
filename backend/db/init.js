@@ -1,17 +1,27 @@
-// db/init.js — async sqlite driver (pure JS, works on Windows with no build tools)
+// db/init.js — async sqlite driver (Vercel compatible)
 import { open } from "sqlite";
 import sqlite3 from "sqlite3";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-export const DB_PATH = join(__dirname, "inkwell.db");
+
+// Use writable temp storage on Vercel
+export const DB_PATH =
+  process.env.NODE_ENV === "production"
+    ? "/tmp/inkwell.db"
+    : join(__dirname, "inkwell.db");
 
 // Returns an open async DB connection
 export async function getDb() {
-  const db = await open({ filename: DB_PATH, driver: sqlite3.Database });
+  const db = await open({
+    filename: DB_PATH,
+    driver: sqlite3.Database,
+  });
+
   await db.run("PRAGMA journal_mode = WAL");
   await db.run("PRAGMA foreign_keys = ON");
+
   return db;
 }
 
@@ -75,5 +85,6 @@ export async function initDb() {
   `);
 
   await db.close();
+
   console.log("✦ Inkwell DB ready at", DB_PATH);
 }
