@@ -16,7 +16,7 @@ Inkwell is a full-stack, AI-powered notes workspace built for the Peblo Full Sta
 | **Backend** | Node.js + Express | Familiar, fast to build |
 | **Database** | SQLite via sqlite + sqlite3 | Pure JS, zero native compilation, works on all platforms |
 | **Auth** | JWT + bcrypt | Stateless, secure |
-| **AI** | Google Gemini 1.5 Flash | Free tier — no credit card needed |
+| **AI** | Google Gemini 2.5 Flash | Free tier — no credit card needed |
 | **Styling** | Pure CSS variables + inline styles | No build-time CSS overhead |
 
 ---
@@ -187,7 +187,7 @@ Visit **http://localhost:5173**, create an account, and start writing.
 - Markdown preview mode (render headings, bold, italic, code, blockquotes, lists)
 - Word count and estimated read time in the editor toolbar
 
-### ✦ AI Integration (Claude)
+### ✦ AI Integration 
 - One-click AI summary generation per note
 - Extracts action items (up to 5) automatically
 - Suggests a sharp title if none is set
@@ -243,20 +243,16 @@ The colour palette uses CSS custom properties throughout, making it trivial to a
 ### Backend (`backend/.env`)
 
 ```
-PORT=4000
-JWT_SECRET=inkwell_jwt_secret_make_this_long_and_random
-GEMINI_API_KEY=AIza...your_key_from_aistudio_google_com
-FRONTEND_URL=http://localhost:5173
+PORT= 
+JWT_SECRET= 
+GEMINI_API_KEY= 
+FRONTEND_URL= 
 ```
 
 ### Frontend (`frontend/.env`)
 
 ```
-VITE_API_URL=http://localhost:4000
+VITE_API_URL= 
 ```
-
-> **Never commit `.env` files.** They are in `.gitignore`.
-
----
 
 *Built for the Peblo Full Stack Developer Challenge — May 2026*
