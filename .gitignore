@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment variables — NEVER COMMIT THESE
+.env
+backend/.env
+frontend/.env
+
+# Build output
+dist/
+build/
+
+# Database (local only)
+backend/db/inkwell.db
+backend/db/*.db-shm
+backend/db/*.db-wal
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

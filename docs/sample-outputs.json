@@ -1,0 +1,119 @@
+{
+  "auth_signup": {
+    "endpoint": "POST /auth/signup",
+    "request": {
+      "name": "Priya Mehta",
+      "email": "priya@example.com",
+      "password": "securepass123"
+    },
+    "response": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "user": {
+        "id": "USR_a1b2c3d4",
+        "name": "Priya Mehta",
+        "email": "priya@example.com"
+      }
+    }
+  },
+
+  "notes_list": {
+    "endpoint": "GET /notes",
+    "response": {
+      "notes": [
+        {
+          "id": "NOTE_x7y8z9w1",
+          "user_id": "USR_a1b2c3d4",
+          "title": "Sprint Planning — Q2 2026",
+          "content": "## Goals\n\nThis sprint we focus on the onboarding flow...",
+          "category": "work",
+          "is_archived": false,
+          "is_public": true,
+          "share_id": "abc123xyz456",
+          "word_count": 312,
+          "created_at": "2026-05-14T09:00:00Z",
+          "updated_at": "2026-05-15T14:23:00Z",
+          "tags": ["work", "sprint", "planning"],
+          "ai": {
+            "summary": "A sprint planning note covering Q2 goals, team assignments, and delivery milestones for the onboarding redesign project.",
+            "action_items": [
+              "Finalise mockups for onboarding flow by Friday",
+              "Schedule API review with backend team",
+              "Update Notion board with new task breakdown"
+            ],
+            "suggested_title": "Sprint Planning — Q2 2026",
+            "generated_at": "2026-05-15T14:25:00Z"
+          }
+        }
+      ],
+      "total": 1
+    }
+  },
+
+  "ai_generate": {
+    "endpoint": "POST /ai/generate/NOTE_x7y8z9w1",
+    "response": {
+      "summary": "A sprint planning note covering Q2 goals, team assignments, and delivery milestones for the onboarding redesign project.",
+      "action_items": [
+        "Finalise mockups for onboarding flow by Friday",
+        "Schedule API review with backend team",
+        "Update Notion board with new task breakdown"
+      ],
+      "suggested_title": "Sprint Planning — Q2 2026",
+      "key_topics": ["sprint planning", "onboarding", "Q2 goals", "team workflow"],
+      "tokens_used": 487
+    }
+  },
+
+  "insights": {
+    "endpoint": "GET /insights",
+    "response": {
+      "totals": {
+        "notes": 14,
+        "archived": 3,
+        "words": 8421,
+        "ai_used": 9,
+        "shared": 2
+      },
+      "top_tags": [
+        { "name": "work", "count": 6 },
+        { "name": "ideas", "count": 4 },
+        { "name": "learning", "count": 3 }
+      ],
+      "recent_notes": [
+        { "id": "NOTE_x7y8z9w1", "title": "Sprint Planning — Q2 2026", "updated_at": "2026-05-15T14:23:00Z", "word_count": 312 }
+      ],
+      "weekly_activity": [
+        { "day": "2026-05-09", "count": 2 },
+        { "day": "2026-05-12", "count": 5 },
+        { "day": "2026-05-14", "count": 3 },
+        { "day": "2026-05-15", "count": 4 }
+      ],
+      "categories": [
+        { "category": "work", "count": 6 },
+        { "category": "personal", "count": 4 },
+        { "category": "learning", "count": 3 },
+        { "category": "ideas", "count": 1 }
+      ]
+    }
+  },
+
+  "shared_note": {
+    "endpoint": "GET /notes/shared/abc123xyz456",
+    "response": {
+      "note": {
+        "id": "NOTE_x7y8z9w1",
+        "title": "Sprint Planning — Q2 2026",
+        "content": "## Goals\n\nThis sprint we focus on the onboarding flow...",
+        "tags": ["work", "sprint", "planning"],
+        "word_count": 312,
+        "updated_at": "2026-05-15T14:23:00Z",
+        "author_name": "Priya Mehta",
+        "ai": {
+          "summary": "A sprint planning note covering Q2 goals, team assignments, and delivery milestones.",
+          "action_items": ["Finalise mockups", "Schedule API review"],
+          "suggested_title": "Sprint Planning — Q2 2026"
+        }
+      }
+    }
+  }
+}
